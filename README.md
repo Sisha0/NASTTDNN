@@ -1,10 +1,10 @@
 # Neural architecture search for tabular deep neural networks
 
-The goal of the project is to apply neural architecture search (NAS) to deep neural networks (DNNs) specified for tabular data. We take a multi-layer perceptron [[1]](#1) and apply it to California Housing [[2]](#2) and Covertype [[3]](#3) datasets. To select an optimal architecture, we use DARTS [[4]](#4).
+The goal of the project is to apply neural architecture search (NAS) to deep neural networks (DNNs) specified for tabular data. We take a multi-layer perceptron [[1]](#1) and apply it to California Housing [[2]](#2), Jannis [[3]](#3) and Covertype [[4]](#4) datasets. To select an optimal architecture, we use DARTS [[5]](#5). The project's report is [here](./report/report.pdf).
 
 # Project structure and setup
 
-We have two jupyter notebooks: one for [classification](./mlp_classification.ipynb) task (Covertype) and one for [regression](./mlp_regression.ipynb) (California housing) task. Before running the code from notebooks, you should install the needed dependencies from the root of the project:
+We have three jupyter notebooks in the project's root: two for classification tasks (Covertype\Jannis) and one for regression (California housing) task. Before running the code from notebooks, you should install the needed dependencies from the root of the project:
 
 ```bash
 pip install -r requirements.txt
@@ -30,9 +30,14 @@ R. Kelley Pace and R. Barry. Sparse spatial autoregressions. Statistics & Probab
 291–297, 1997.
 
 <a id="3">[3]</a>
+I. Guyon, L. Sun-Hosoya, M. Boullé, H. J. Escalante, S. Escalera, Z. Liu, D. Jajetic, B. Ray, M. Saeed,
+M. Sebag, A. Statnikov, W. Tu, and E. Viegas. Analysis of the automl challenge series 2015-2018.
+In AutoML, Springer series on Challenges in Machine Learning, 2019.
+
+<a id="4">[4]</a>
 J. A. Blackard and D. J. Dean. Comparative accuracies of artificial neural networks and discriminant
 analysis in predicting forest cover types from cartographic variables. Computers and Electronics
 in Agriculture, 24(3):131–151, 2000.
 
-<a id="4">[4]</a>
+<a id="5">[5]</a>
 Liu, H., Simonyan, K., & Yang, Y. (2018). Darts: Differentiable architecture search. arXiv preprint arXiv:1806.09055.
