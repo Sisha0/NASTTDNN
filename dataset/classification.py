@@ -1,7 +1,7 @@
 import numpy as np
 import numpy.typing as npt
 import typing as tp
-from sklearn.preprocessing import QuantileTransformer
+from sklearn.preprocessing import QuantileTransformer, LabelEncoder
 from sklearn.datasets import fetch_covtype, fetch_openml
 from torch.utils.data import DataLoader
 from .common import TaskType, TaskConfig, train_val_test_split, get_data_loaders
@@ -24,7 +24,8 @@ def preprocess_features(data: npt.NDArray[np.float32], split: tp.Dict[str, npt.N
 
 
 def preprocess_target(target: npt.NDArray[np.float32], split: tp.Dict[str, npt.NDArray[np.int32]]):
-    return {split_name: target[split_idx] for split_name, split_idx in split.items()} # subtracting 1 to make classes be in [0, num_classes) range
+    label_encoder = LabelEncoder().fit(target)
+    return {split_name: label_encoder.transform(target[split_idx]) for split_name, split_idx in split.items()}
 
 
 def fetch_data(name: tp.Literal['co', 'ja'], batch_size: int = 256, num_workers: int = 4) -> tp.Tuple[TaskConfig, tp.Dict[str, DataLoader]]:
